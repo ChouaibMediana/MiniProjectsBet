@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- AppBar with Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:title="@string/app_name"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- TextView pour afficher le solde du joueur -->
+        <TextView
+            android:id="@+id/tv_solde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/actif_label"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Trois ImageViews pour les images de la machine à sous -->
+
+        <ImageView
+            android:id="@+id/iv_slot1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/img7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_solde" />
+
+        <ImageView
+            android:id="@+id/iv_slot2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/piece"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_slot1"
+            app:layout_constraintStart_toEndOf="@+id/iv_slot1"
+            app:layout_constraintTop_toTopOf="@+id/iv_slot1" />
+
+        <ImageView
+            android:id="@+id/iv_slot3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/sacargent"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_slot2"
+            app:layout_constraintStart_toEndOf="@+id/iv_slot2"
+            app:layout_constraintTop_toTopOf="@+id/iv_slot2" />
+
+        <!-- RadioGroup pour les options de mise -->
+        <RadioGroup
+            android:id="@+id/rg_mise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_slot1">
+
+            <!-- RadioButtons pour les mises -->
+            <RadioButton
+                android:id="@+id/rb_mise1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bet_1"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rb_mise2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bet_2"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rb_mise5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bet_5"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Button pour le bouton "JOUER" -->
+        <Button
+            android:id="@+id/btn_jouer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@string/play_button"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/rg_mise"
+            app:layout_constraintTop_toTopOf="@id/rg_mise" />
+
+        <!-- CheckBox pour le mode "Casse-cou" -->
+        <CheckBox
+            android:id="@+id/cb_casse_cou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/daredevil_mode"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/btn_jouer"
+            app:layout_constraintTop_toBottomOf="@id/btn_jouer" />
+
+        <!-- TextView pour indiquer l'ajout de 100$ -->
+        <TextView
+            android:id="@+id/tv_add_100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/add_100"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rg_mise" />
+
+        <!-- TextView pour le texte "Entrer votre code secret" -->
+        <TextView
+            android:id="@+id/tv_enter_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/enter_secret"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_100" />
+
+        <!-- EditText pour saisir le code secret -->
+        <EditText
+            android:id="@+id/et_code_secret"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:hint="@string/enter_secret"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tv_enter_code"
+            app:layout_constraintTop_toTopOf="@id/tv_enter_code" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">I&amp;Sbet</string>
+    <string name="actif_label">Vos actifs :</string>
+    <string name="bet_1">$1</string>
+    <string name="bet_2">$2</string>
+    <string name="bet_5">$5</string>
+    <string name="play_button">JOUER</string>
+    <string name="daredevil_mode">Casse-cou</string>
+    <string name="add_100">Pour ajouter 100$</string>
+    <string name="enter_secret">Entrer votre code secret</string>
+    <string name="toast_win_message">You won %1$d $!</string>
+    <string name="solde_text">Solde: %1$d $</string>
+    <string name="insufficient_balance">Solde insuffisant</string>
+    <string name="secret_code_success">Code secret accepté ! +100 $ ajoutés</string>
+
+</resources>
